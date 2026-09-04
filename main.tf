@@ -1,5 +1,5 @@
 module "application" {
-  source = "github.com/defdevio/interface-module-example?ref=v1.0.0"
+  source = "github.com/defdevio/interface-module-example?ref=v1.0.1"
 
   account_id                      = var.account_id
   aws_region                      = var.aws_region
