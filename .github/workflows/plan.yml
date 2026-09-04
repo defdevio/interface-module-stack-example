@@ -1,0 +1,37 @@
+name: Plan
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+permissions:
+  contents: read
+
+jobs:
+  plan:
+    name: Plan OpenTofu configuration
+    runs-on: ubuntu-latest
+
+    env:
+      AWS_ACCESS_KEY_ID: testing
+      AWS_SECRET_ACCESS_KEY: testing
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up OpenTofu
+        uses: opentofu/setup-opentofu@v2
+        with:
+          tofu_version: 1.11.4
+
+      - name: Initialize OpenTofu
+        run: tofu init -backend=false
+
+      - name: Validate OpenTofu configuration
+        run: tofu validate
+
+      - name: Plan without AWS credentials
+        run: tofu plan -input=false -var='account_id=123456789012' -var='aws_skip_credentials_validation=true'
