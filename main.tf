@@ -1,7 +1,7 @@
 module "application" {
-  source = "github.com/defdevio/interface-module-example?ref=v1.0.1"
+  source = "github.com/defdevio/interface-module-example?ref=v1.0.2"
 
-  account_id                      = var.account_id
+  aws_account_id                  = var.aws_account_id
   aws_region                      = var.aws_region
   aws_skip_credentials_validation = var.aws_skip_credentials_validation
   environment                     = var.environment
@@ -20,7 +20,7 @@ module "application" {
           {
             sid       = "ReadOrders"
             actions   = ["dynamodb:GetItem"]
-            resources = ["arn:aws:dynamodb:${var.aws_region}:${var.account_id}:table/orders"]
+            resources = ["arn:aws:dynamodb:${var.aws_region}:${var.aws_account_id}:table/orders"]
           }
         ]
       }

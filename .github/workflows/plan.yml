@@ -34,4 +34,4 @@ jobs:
         run: tofu validate
 
       - name: Plan without AWS credentials
-        run: tofu plan -input=false -var='account_id=123456789012' -var='aws_skip_credentials_validation=true'
+        run: tofu plan -input=false -var='aws_account_id=123456789012' -var='aws_skip_credentials_validation=true'

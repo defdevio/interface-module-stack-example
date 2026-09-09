@@ -14,7 +14,7 @@ Requirements: OpenTofu 1.6+ or Terraform 1.6+, an AWS account ID, and network ac
 tofu init
 tofu fmt -check
 tofu validate
-tofu plan -var='account_id=123456789012'
+tofu plan -var='aws_account_id=123456789012'
 ```
 
 To use Terraform, replace `tofu` with `terraform`.

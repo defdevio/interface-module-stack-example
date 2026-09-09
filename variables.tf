@@ -1,4 +1,4 @@
-variable "account_id" {
+variable "aws_account_id" {
   description = "AWS account ID used in names and IAM trust policies."
   type        = string
 }
